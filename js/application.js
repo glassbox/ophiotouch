@@ -77,7 +77,7 @@ function loginSF() {
                  }
              };
 
-             ChildBrowser.showWebPage(getAuthorizeUrl(loginUrl, clientId, redirectUri));
+             ChildBrowser.showWebPage(getAuthorizeUrl(loginUrl, clientId, redirectUri), { showLocationBar: false });
 		 }
 		 catch(err)
 		 {
