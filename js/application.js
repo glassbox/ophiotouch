@@ -4,6 +4,7 @@
  var clientId = '3MVG9rFJvQRVOvk49xUquum.p.12gtyhEumB01SQhP.zZ.LyzAnC_d18vRgl3M1uHDGMSTLJFIDT1B.9d9lnt';
  var redirectUri = 'https://login.salesforce.com/services/oauth2/success';
  var client;
+ var geoLocationTimer;
 
 
 
@@ -23,8 +24,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //
 function onDeviceReady() {
 
-// alert('Device Ready');
-// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+
  loginSF();
 
 }
@@ -68,6 +69,14 @@ function  clearLog()
 {
    var element = document.getElementById('log');
     element.innerHTML = '';
+
+}
+
+// Clear Log
+function  newLog(message)
+{
+   clearLog();
+   addLog(message);
 
 }
 
@@ -130,11 +139,24 @@ function sessionCallback(loc) {
              client.setSessionToken(oauthResponse.access_token, null,
 		    	oauthResponse.instance_url);
 
-			client.query("SELECT Name FROM Account LIMIT 1",
-				function(response){
-				    addLog('The first account I see is '
-					+response.records[0].Name);
-			    }
-			);
-         }
+             startApplication();
  }
+
+
+
+function getGeolocation()
+{
+	 navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+function stopGetLocationTimer()
+{
+	clearInterval(geolocationTimer);
+}
+
+
+function startApplication()
+{
+	geoLocationTimer= setInterval(function(){getGeolocation()},5*60*1000);
+
+}
