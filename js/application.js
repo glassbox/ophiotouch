@@ -43,7 +43,7 @@ function onDeviceReady() {
                         'Speed: '              + position.coords.speed                 + '<br />' +
                         'Timestamp: '          + position.timestamp                    + '<br />';
 
-       addLog(message);
+       newLog(message);
 }
 
 // onError Callback receives a PositionError object
@@ -140,6 +140,7 @@ function sessionCallback(loc) {
 		    	oauthResponse.instance_url);
 
              startApplication();
+		 }
  }
 
 
