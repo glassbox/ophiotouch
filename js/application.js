@@ -61,6 +61,19 @@ function  clearLog()
 
 //
 
+function onLocationChange (loc){
+	alert(loc);
+	 ChildBrowser.close();
+     sessionCallback(unescape(loc));
+
+     return;
+
+  if (loc.startsWith(redirectUri)) {
+     ChildBrowser.close();
+     sessionCallback(unescape(loc));
+ }
+}
+
 function loginSF() {
 
 
@@ -70,12 +83,7 @@ function loginSF() {
 
          var cb = ChildBrowser.install();
 
-          ChildBrowser.onLocationChange = function(loc){
-                 if (loc.startsWith(redirectUri)) {
-                     ChildBrowser.close();
-                     sessionCallback(unescape(loc));
-                 }
-             };
+          ChildBrowser.onLocationChange = onLocationChange;
 
              ChildBrowser.showWebPage(getAuthorizeUrl(loginUrl, clientId, redirectUri), { showLocationBar: false });
 		 }
