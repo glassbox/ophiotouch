@@ -22,6 +22,7 @@ function init()
 {
 
 	alert('init');
+	loginSF();
 
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
