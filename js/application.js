@@ -10,7 +10,7 @@
 
 
 
-// client = new forcetk.Client(clientId, loginUrl);
+ client = new forcetk.Client(clientId, loginUrl);
 
 if (typeof String.prototype.startsWith != 'function') {
   String.prototype.startsWith = function (str){
@@ -19,7 +19,7 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 
-//document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, false);
 
 $( document ).bind( "mobileinit", function(){
     $.support.cors = true;
