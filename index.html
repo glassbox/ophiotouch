@@ -1,17 +1,43 @@
 <html>
 <head>
-	    <script type="text/javascript" src="js/libs/jquery.min.js"></script>
-	    <script type="text/javascript" src="js/libs/forcetk.js"></script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="childbrowser.js"></script>
-        <script type="text/javascript" src="js/application.js"></script>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	   <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	   <script type="text/javascript" src="js/libs/jquery.min.js"></script>
+	   <script type="text/javascript" src="js/libs/forcetk.js"></script>
+       <script type="text/javascript" src="phonegap.js"></script>
+       <script type="text/javascript" src="childbrowser.js"></script>
+       <script type="text/javascript" src="js/application.js"></script>
 
 </head>
 
 <body>
-   <h1> Welcome to Ophio  Mobile </h1>
-   <div id="logTitle" > <h2> Log : </h2> </div>
-   <div id="log" > log goes here </div>
+
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Ophio Mobile</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	    <h2> Welcome to Ophio  Mobile </h2>
+		<div id="logTitle" > <h2> Log : </h2> </div>
+   		<div id="log" > log goes here </div>
+
+
+   		<a href="index.html" data-role="button" data-icon="delete" data-theme="b">Logout</a>
+
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Ophio Mobile for Salesforce</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
 </body>
 
 

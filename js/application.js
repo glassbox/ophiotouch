@@ -21,13 +21,24 @@ if (typeof String.prototype.startsWith != 'function') {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+document.addEventListener("deviceready", onDeviceReady, true);
+
+$( document ).bind( "mobileinit", function(){
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+    $.mobile.loadingMessageTextVisible = true;
+    $.mobile.showPageLoadingMsg();
+});
+
+
 // The device/phonegap is ready
 //
 function onDeviceReady() {
+$.support.cors = true;
+$.mobile.allowCrossDomainPages = true;
+e.preventDefault();
 
-
-
- loginSF();
+loginSF();
 
 }
 
@@ -40,12 +51,9 @@ function onDeviceReady() {
 	{
     var message =       'Latitude: '            + position.coords.latitude              + '<br />' +
                         'Longitude: '          + position.coords.longitude             + '<br />' +
-                        'Altitude: '           + position.coords.altitude              + '<br />' +
                         'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                        'Heading: '            + position.coords.heading               + '<br />' +
                         'Speed: '              + position.coords.speed                 + '<br />' +
-                        'Timestamp: '          + position.timestamp                    + '<br />';
+                        'Timestamp: '          + (New Date(position.timestamp)).toLocaleString() + '<br />';
 
 
 
@@ -168,7 +176,6 @@ function sessionCallback(loc) {
          } else {
 
 			 userId = oauthResponse.id.slice(-18);
-			 alert(userId);
              client.setSessionToken(oauthResponse.access_token, null,
 		    	oauthResponse.instance_url);
 
