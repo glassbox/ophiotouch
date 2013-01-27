@@ -19,7 +19,7 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 
-document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, true);
 
 $( document ).bind( "mobileinit", function(){
 	alert('jquery');
@@ -30,9 +30,11 @@ $( document ).bind( "mobileinit", function(){
 });
 
 
+
+
 // The device/phonegap is ready
 //
-function onDeviceReady() {
+function onDeviceReady(e) {
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
 e.preventDefault();
