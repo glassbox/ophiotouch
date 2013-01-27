@@ -35,7 +35,10 @@ function onDeviceReady() {
 //
 
  function onSuccess(position) {
-    var message = 'Latitude: '                 + position.coords.latitude              + '<br />' +
+
+	try
+	{
+    var message =       'Latitude: '            + position.coords.latitude              + '<br />' +
                         'Longitude: '          + position.coords.longitude             + '<br />' +
                         'Altitude: '           + position.coords.altitude              + '<br />' +
                         'Accuracy: '           + position.coords.accuracy              + '<br />' +
@@ -44,7 +47,29 @@ function onDeviceReady() {
                         'Speed: '              + position.coords.speed                 + '<br />' +
                         'Timestamp: '          + position.timestamp                    + '<br />';
 
-       newLog(message);
+
+
+
+
+	       var data = {};
+	       data.User__c = userId;
+	       data.Address__c =  '505 - 17 St West Vancouver, BC, Canada V7V 3W3';
+	       data.Longitude__c =  position.coords.longitude ;
+	       data.Latitude__c = position.coords.latitude ;
+	       data.Altitude__c =position.coords.altitude ;
+	       data.Time__c = ( new Date(position.timestamp)).toUTCString();
+	       data.Speed__c = position.coords.speed;
+	   	   data.Accuracy__c = position.coords.accuracy ;
+
+	      client.create("GeoLocation__c", data, saveDataSuccess, saveDataError );
+	       newLog(message);
+
+	}
+	       catch(e){
+	           console.log(e);
+    }
+
+
 }
 
 // onError Callback receives a PositionError object
@@ -181,6 +206,7 @@ function saveFormData( event ) {
    {
 
     var data = {};
+    data.User__c = userId;
     data.Address__c = $("#first").val();
     data.Address__c = $("#first").val();
     data.Longitude__c = $("#last").val();
