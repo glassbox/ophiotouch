@@ -65,7 +65,7 @@ function onLocationChange (loc){
 	alert(loc);
 	counterLoc++;
 
- if(counterLoc ==2)
+ if(counterLoc ==20)
  {
 	 ChildBrowser.close();
      sessionCallback(unescape(loc));
