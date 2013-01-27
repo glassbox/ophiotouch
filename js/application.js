@@ -32,7 +32,7 @@ $( document ).on( "mobileinit", function(){
 });
 
 
-$('#logout').on('click', function(event,ui) {
+$('#logout').live('click', function(event,ui) {
 
    logout();
    event.preventDefault();
