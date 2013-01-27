@@ -4,7 +4,7 @@
  var clientId = '3MVG9rFJvQRVOvk49xUquum.p.12gtyhEumB01SQhP.zZ.LyzAnC_d18vRgl3M1uHDGMSTLJFIDT1B.9d9lnt';
  var redirectUri = 'https://login.salesforce.com/services/oauth2/success';
  var client;
- var geoLocationTimer;
+ var geolocationTimer;
 
 
 
@@ -139,6 +139,7 @@ function sessionCallback(loc) {
              client.setSessionToken(oauthResponse.access_token, null,
 		    	oauthResponse.instance_url);
 
+
              startApplication();
 		 }
  }
@@ -147,6 +148,7 @@ function sessionCallback(loc) {
 
 function getGeolocation()
 {
+	 alert('getGeolocation');
 	 navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
@@ -158,6 +160,7 @@ function stopGetLocationTimer()
 
 function startApplication()
 {
-	geoLocationTimer= setInterval(function(){getGeolocation()},5*60*1000);
+	 alert('Start Application');
+	geolocationTimer= setInterval(function(){getGeolocation()},5*60*1000);
 
 }
