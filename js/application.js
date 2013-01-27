@@ -22,6 +22,7 @@ if (typeof String.prototype.startsWith != 'function') {
 document.addEventListener("deviceready", onDeviceReady, false);
 
 $( document ).bind( "mobileinit", function(){
+	alert('jquery');
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     $.mobile.loadingMessageTextVisible = true;
@@ -35,6 +36,7 @@ function onDeviceReady() {
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
 e.preventDefault();
+alert('SF');
 loginSF();
 
 }
@@ -90,6 +92,7 @@ function onError(error) {
 
 function addLog(message)
 {
+	alert(message);
    var element = document.getElementById('log');
     element.innerHTML +=  message;
 
