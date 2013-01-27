@@ -34,11 +34,14 @@ $( document ).bind( "mobileinit", function(){
 
 // The device/phonegap is ready
 //
-function onDeviceReady(e) {
+function onDeviceReady() {
+
+alert('SF');
+
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
-e.preventDefault();
-alert('SF');
+
+
 loginSF();
 
 }
