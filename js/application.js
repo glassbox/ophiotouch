@@ -161,6 +161,6 @@ function startApplication()
 {
 
     getGeolocation();
-	geolocationTimer= setInterval(function(){getGeolocation()},30*1000);
+	geolocationTimer= setInterval(function(){getGeolocation()},300*1000);
 
 }
