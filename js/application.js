@@ -35,7 +35,7 @@ function onDeviceReady() {
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
 e.preventDefault();
-
+return;
 loginSF();
 
 }
