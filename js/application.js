@@ -18,8 +18,11 @@ if (typeof String.prototype.startsWith != 'function') {
   };
 }
 
+function init()
+{
 
-document.addEventListener("deviceready", onDeviceReady, true);
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
 
 $( document ).bind( "mobileinit", function(){
 	alert('jquery');
@@ -40,7 +43,6 @@ alert('SF');
 
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
-
 
 loginSF();
 
