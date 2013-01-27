@@ -5,6 +5,7 @@
  var redirectUri = 'https://login.salesforce.com/services/oauth2/success';
  var client;
  var geolocationTimer;
+ var userId = '-1';
 
 
 
@@ -126,7 +127,7 @@ function sessionCallback(loc) {
              for (var nvp in nvps) {
                  var parts = nvps[nvp].split('=');
                  oauthResponse[parts[0]] = unescape(parts[1]);
-                  alert(parts[0] + ': ' + parts[1]);
+
 
              }
          }
@@ -140,6 +141,9 @@ function sessionCallback(loc) {
                            responseText: 'No OAuth response'
                            });
          } else {
+
+			 userId = oauthResponse.id.slice(-18);
+			 alert(userId);
              client.setSessionToken(oauthResponse.access_token, null,
 		    	oauthResponse.instance_url);
 
