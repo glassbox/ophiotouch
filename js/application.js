@@ -148,7 +148,6 @@ function sessionCallback(loc) {
 
 function getGeolocation()
 {
-	 alert('getGeolocation');
 	 navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
@@ -160,7 +159,7 @@ function stopGetLocationTimer()
 
 function startApplication()
 {
-	 alert('Start Application');
-	geolocationTimer= setInterval(function(){getGeolocation()},5*60*1000);
+
+	geolocationTimer= setInterval(function(){getGeolocation()},30*1000);
 
 }
