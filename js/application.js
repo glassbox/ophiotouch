@@ -21,11 +21,13 @@ if (typeof String.prototype.startsWith != 'function') {
 function init()
 {
 
+	alert('init');
+
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
 
-$( document ).bind( "mobileinit", function(){
-	alert('jquery');
+$( document ).on( "mobileinit", function(){
+
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     $.mobile.loadingMessageTextVisible = true;
@@ -33,7 +35,11 @@ $( document ).bind( "mobileinit", function(){
 });
 
 
+$('#login').on('click', function(event,ui) {
 
+   alert('login');
+   event.preventDefault();
+});
 
 // The device/phonegap is ready
 //
