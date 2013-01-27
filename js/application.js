@@ -21,8 +21,6 @@ if (typeof String.prototype.startsWith != 'function') {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-document.addEventListener("deviceready", onDeviceReady, true);
-
 $( document ).bind( "mobileinit", function(){
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
