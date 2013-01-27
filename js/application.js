@@ -32,9 +32,9 @@ $( document ).on( "mobileinit", function(){
 });
 
 
-$('#login').on('click', function(event,ui) {
+$('#logout').on('click', function(event,ui) {
 
-   alert('login');
+   logout();
    event.preventDefault();
 });
 
@@ -42,7 +42,7 @@ $('#login').on('click', function(event,ui) {
 //
 function onDeviceReady() {
 
-alert('SF');
+
 
 $.support.cors = true;
 $.mobile.allowCrossDomainPages = true;
@@ -92,7 +92,7 @@ loginSF();
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-	        alert('code: '    + error.code    + '\n' +
+	        addLog('code: '    + error.code    + '\n' +
 	                'message: ' + error.message + '\n');
 }
 
@@ -102,7 +102,7 @@ function onError(error) {
 
 function addLog(message)
 {
-	alert(message);
+
    var element = document.getElementById('log');
     element.innerHTML +=  message;
 
@@ -139,7 +139,7 @@ function loginSF() {
 
         try
         {
-		// alert('SF');
+
 
          var cb = ChildBrowser.install();
 
@@ -248,4 +248,9 @@ function saveDataSuccess( result ) {
 
 function saveDataError( request, status, error){
     addLog( request.responseText );
+}
+
+function logout()
+{
+	alert('logout');
 }
