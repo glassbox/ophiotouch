@@ -126,8 +126,12 @@ function sessionCallback(loc) {
              for (var nvp in nvps) {
                  var parts = nvps[nvp].split('=');
                  oauthResponse[parts[0]] = unescape(parts[1]);
+                  alert(parts[0] + ': ' + parts[1]);
+
              }
          }
+
+
 
          if (typeof oauthResponse === 'undefined'
              || typeof oauthResponse['access_token'] === 'undefined') {
@@ -163,4 +167,38 @@ function startApplication()
     getGeolocation();
 	geolocationTimer= setInterval(function(){getGeolocation()},300*1000);
 
+}
+
+
+
+function saveFormData( event ) {
+
+   try
+   {
+
+    var data = {};
+    data.Address__c = $("#first").val();
+    data.Address__c = $("#first").val();
+    data.Longitude__c = $("#last").val();
+    data.Latitude__c = $("#phone").val();
+    data.Altitude__c = $("#email").val();
+    data.Time__c = $("#notes").val();
+    data.Speed__c = $("#phone").val();
+	data.Accuracy__c = $("#email").val();
+
+   client.create("GeoLocation__c", data, saveDataSuccess, saveDataError );
+
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+
+function saveDataSuccess( result ) {
+    addLog("Data Saved");
+
+}
+
+function saveDataError( request, status, error){
+    addLog( request.responseText );
 }
