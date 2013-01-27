@@ -18,21 +18,17 @@ if (typeof String.prototype.startsWith != 'function') {
   };
 }
 
-function init()
-{
 
-	alert('init');
-	loginSF();
 
-	document.addEventListener("deviceready", onDeviceReady, false);
-}
+document.addEventListener("deviceready", onDeviceReady, false);
+
 
 $( document ).on( "mobileinit", function(){
 
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     $.mobile.loadingMessageTextVisible = true;
-    $.mobile.showPageLoadingMsg();
+
 });
 
 
@@ -66,7 +62,7 @@ loginSF();
                         'Longitude: '          + position.coords.longitude             + '<br />' +
                         'Accuracy: '           + position.coords.accuracy              + '<br />' +
                         'Speed: '              + position.coords.speed                 + '<br />' +
-                        'Timestamp: '          + (New Date(position.timestamp)).toLocaleString() + '<br />';
+                        'Timestamp: '          + (new Date(position.timestamp)).toLocaleString() + '<br />';
 
 
 
