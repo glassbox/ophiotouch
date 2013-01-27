@@ -3,9 +3,12 @@
  var loginUrl = 'https://login.salesforce.com/';
  var clientId = '3MVG9rFJvQRVOvk49xUquum.p.12gtyhEumB01SQhP.zZ.LyzAnC_d18vRgl3M1uHDGMSTLJFIDT1B.9d9lnt';
  var redirectUri = 'https://login.salesforce.com/services/oauth2/success';
+ var client;
 
 
 
+
+client = new forcetk.Client(clientId, loginUrl);
 
 if (typeof String.prototype.startsWith != 'function') {
   String.prototype.startsWith = function (str){
@@ -71,9 +74,6 @@ function  clearLog()
 //
 
 function onLocationChange (loc){
-	alert(loc);
-
-
 
   if (loc.startsWith(redirectUri)) {
      ChildBrowser.close();
